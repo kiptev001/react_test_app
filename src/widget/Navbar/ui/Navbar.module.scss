@@ -1,0 +1,17 @@
+.navbar {
+  background-color: var(--inverted-bg-color);
+  color: var(--secondary-color);
+  width: 100%;
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+}
+
+.links {
+  margin-left: auto;
+}
+
+.mainLink,
+.loginLink {
+  margin: 10px;
+}
