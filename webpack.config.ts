@@ -1,6 +1,6 @@
 import webpack from 'webpack';
-import { buildWebpackConfig } from './confg/build/buildWebpackConfig';
-import { EnvBuild, IPath } from './confg/build/types/config';
+import { buildWebpackConfig } from './config/build/buildWebpackConfig';
+import { EnvBuild, IPath } from './config/build/types/config';
 import path from 'path';
 
 export default (env: EnvBuild) => {

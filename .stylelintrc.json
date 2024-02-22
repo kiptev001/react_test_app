@@ -1,0 +1,17 @@
+{
+  "rules": {
+    "alpha-value-notation": "number"
+  },
+  "overrides": [
+    {
+      "files": ["*.scss", "**/*.scss"],
+      "customSyntax": "postcss-scss"
+    },
+    {
+      "files": ["src/**/*.scss"],
+      "rules": {
+        "alpha-value-notation": "percentage"
+      }
+    }
+  ]
+}

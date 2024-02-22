@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import cls from './LanguageSwitcher.module.scss';
-import { t } from 'i18next';
 import { MyButton, ThemeButton } from 'shared/ui/Button';
 import { useTranslation } from 'react-i18next';
 import classNames from 'shared/lib/classNames/classNames';
