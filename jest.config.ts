@@ -1,7 +1,4 @@
-/**
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
+import path from 'path'
 
 const config = {
   testEnvironment: 'jsdom',
@@ -17,7 +14,17 @@ const config = {
     'tsx',
     'json',
     'node'
-  ]
+  ],
+  setupFilesAfterEnv: ['./jest-setup.ts'],
+  moduleNameMapper: {
+    '\\.s?css$': 'identity-obj-proxy',
+    '\\.svg': path.resolve(
+      __dirname,
+      'src/shared/config/',
+      'jestEmptyComponent.tsx'
+    )
+  },
+  modulePaths: ['<rootDir>src']
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -188,6 +195,6 @@ const config = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-};
+}
 
-export default config;
+export default config

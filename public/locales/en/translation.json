@@ -2,5 +2,8 @@
   "Перевод": "Translate",
   "Открыть": "Open",
   "Войти": "Login",
-  "Главная": "Main"
+  "Главная": "Main",
+  "Страница не найдена": "Page not found",
+  "Что-то пошло не так": "Something went wrong",
+  "Обновить страницу": "Refresh page"
 }

@@ -1,33 +1,32 @@
-import React from 'react';
-import cls from './ThemeSwitcher.module.scss';
-import { useTheme } from 'app/providers/themeProvider/index';
-import classNames from 'shared/lib/classNames/classNames';
-import Moon from 'shared/icons/moon.svg';
-import Sun from 'shared/icons/sun.svg';
-import { Theme } from 'app/providers/themeProvider/index';
-import { MyButton, ThemeButton } from 'shared/ui/Button/index';
+import React from 'react'
+import cls from './ThemeSwitcher.module.scss'
+import { useTheme, Theme } from 'app/providers/themeProvider/index'
+import classNames from 'shared/lib/classNames/classNames'
+import Moon from 'shared/icons/moon.svg'
+import Sun from 'shared/icons/sun.svg'
+import { MyButton, ThemeButton } from 'shared/ui/Button/index'
 
 export interface ThemeSwitcherProps {
-  className?: string;
+  readonly className?: string
 }
 
-const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
-  const { theme, toggleTheme } = useTheme();
+function ThemeSwitcher ({ className }: ThemeSwitcherProps) {
+  const { theme, toggleTheme } = useTheme()
   return (
-    <>
-      <MyButton
-        theme={ThemeButton.CLEAR}
+    <MyButton
         className={classNames(cls.btn, {}, [className])}
         onClick={toggleTheme}
-      >
-        {theme === Theme.DARK ? (
+        theme={ThemeButton.CLEAR}
+    >
+      {theme === Theme.DARK
+        ? (
           <Sun className={cls.icon} />
-        ) : (
+          )
+        : (
           <Moon className={cls.icon} />
-        )}
-      </MyButton>
-    </>
-  );
-};
+          )}
+    </MyButton>
+  )
+}
 
-export { ThemeSwitcher };
+export { ThemeSwitcher }

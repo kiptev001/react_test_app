@@ -1,13 +1,13 @@
-import { ResolveOptions } from 'webpack';
-import { IBuildOptions } from './types/config';
+import { type ResolveOptions } from 'webpack'
+import { type IBuildOptions } from './types/config'
 
-export function buildResolvers(options: IBuildOptions): ResolveOptions {
+export function buildResolvers (options: IBuildOptions): ResolveOptions {
   return {
     extensions: ['.tsx', '.ts', '.js'],
     preferAbsolute: true,
     modules: [options.path.src, 'node_modules'],
     mainFiles: ['index'],
     alias: {},
-    fallback: { events: require.resolve('events/') },
-  };
+    fallback: { events: require.resolve('events/') }
+  }
 }
