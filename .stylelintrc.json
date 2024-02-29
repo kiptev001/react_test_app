@@ -1,0 +1,19 @@
+{
+  "rules": {
+    "alpha-value-notation": "number"
+  },
+  "extends": "stylelint-config-standard-scss",
+  "overrides": [
+    {
+      "files": ["*.scss", "**/*.scss"]
+    },
+    {
+      "files": ["src/**/*.scss"],
+      "rules": {
+        "alpha-value-notation": "percentage",
+        "selector-class-pattern": null,
+        "import-notation": null
+      }
+    }
+  ]
+}

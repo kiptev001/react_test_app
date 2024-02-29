@@ -4,16 +4,21 @@
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "es5",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
-    // "baseUrl": ".",
+
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    },
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
+      "module": "CommonJS",
     }
-  }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "webpack.config.ts", "./jest-setup.ts", "jest.config.ts","./config/storybook/preview.ts"],
 }
