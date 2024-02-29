@@ -9,7 +9,7 @@
     "build:dev": "webpack --env mode=development",
     "start": "webpack serve --env port=3000 mode=development",
     "lint:css": "npx stylelint '**/*.scss'",
-    "slint:css/fix": "npx stylelint '**/*.scss' --fix",
+    "lint:css/fix": "npx stylelint '**/*.scss' --fix",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
