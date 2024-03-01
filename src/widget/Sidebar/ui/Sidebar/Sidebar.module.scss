@@ -10,6 +10,23 @@
   transition: width 0.1s ease-out;
 }
 
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.switchers {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transition: all 0.4s ease-out;
+  gap: 10px;
+}
+
 .collapsed {
   width: var(--sidebar-width-collapsed);
   transition: all 0.4s ease-out;
@@ -22,16 +39,6 @@
     flex-direction: column;
     gap: 10px;
   }
-}
-
-.switchers {
-  position: absolute;
-  bottom: 5px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  transition: all 0.4s ease-out;
-  gap: 10px;
 }
 
 .collapseBtn {
@@ -48,13 +55,6 @@
     cursor: pointer;
     background-color: var(--inverted-secondary-color);
   }
-}
-
-.links {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px;
 }
 
 .homeIcon, .loginIcon {
