@@ -22,7 +22,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
         onClick={translate}
         theme={ThemeButton.CLEAR}
     >
-      {t('Перевод')}
+      {t('Язык')}
     </MyButton>
   )
 }

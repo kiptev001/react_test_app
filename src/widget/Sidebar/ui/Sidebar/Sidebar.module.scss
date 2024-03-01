@@ -5,12 +5,23 @@
   width: var(--sidebar-width);
   height: calc(100vh - var(--navbar-height));
   background-color: var(--inverted-bg-color);
+  opacity: 0.6;
   z-index: 100;
-  transition: width 0.5s ease-out;
+  transition: width 0.1s ease-out;
 }
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
+  transition: all 0.4s ease-out;
+
+  .links {
+    width: 100%;
+  }
+  
+  .switchers {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 .switchers {
@@ -19,4 +30,52 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  transition: all 0.4s ease-out;
+  gap: 10px;
+}
+
+.collapseBtn {
+  position:absolute;
+  right: -20px;
+  bottom: 25px;
+  width: 20px;
+  height: 40px;
+  background-color: white;
+  border-radius: 0 8px 8px 0;
+  padding: auto;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--inverted-secondary-color);
+  }
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.homeIcon, .loginIcon {
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke: var(--inverted-primary-color);
+}
+
+.link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: start;
+  padding: 5px;
+  
+  &:hover {
+    cursor: pointer;
+    background-color: var(--inverted-secondary-color);
+    color: var(--secondary-color);
+    text-decoration: none;
+    border-radius: 10px;
+  }
 }
