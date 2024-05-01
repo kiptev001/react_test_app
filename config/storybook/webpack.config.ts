@@ -1,5 +1,5 @@
 import { type WebpackConfiguration } from 'webpack-dev-server';
-import { type IPath } from '../../config/build/types/config'
+import { type IPath } from '../../config/build/types/config';
 import path from 'path';
 
 export default ({ config }: { config: WebpackConfiguration }) => {
@@ -8,7 +8,7 @@ export default ({ config }: { config: WebpackConfiguration }) => {
     build: '',
     html: '',
     src: path.resolve(__dirname, '..', '..', 'src')
-  }
+  };
   config.resolve?.modules?.push(paths.src);
   config.resolve?.extensions?.push('.ts', '.tsx');
   const isDev = true;
@@ -29,7 +29,7 @@ export default ({ config }: { config: WebpackConfiguration }) => {
       },
       'sass-loader'
     ]
-  }
+  };
   config.module?.rules?.push(cssLoader);
 
   config.module = config.module ?? {};
@@ -53,4 +53,4 @@ export default ({ config }: { config: WebpackConfiguration }) => {
   });
 
   return config;
-}
+};

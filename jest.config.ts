@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'path';
 
 const config = {
   testEnvironment: 'jsdom',
@@ -195,6 +195,6 @@ const config = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-}
+};
 
-export default config
+export default config;

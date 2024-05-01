@@ -1,13 +1,15 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import { Counter } from 'entities/Counter';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-const loginPage = () => {
-  const { t } = useTranslation('login')
+const LoginPage = () => {
+  const { t } = useTranslation('login');
   return (
-    <div>
-      {t('Страница входа')}
-    </div>
-  )
-}
+    <>
+      <Counter />
+      <div>{t('Страница входа')}</div>
+    </>
+  );
+};
 
-export default loginPage
+export default LoginPage;

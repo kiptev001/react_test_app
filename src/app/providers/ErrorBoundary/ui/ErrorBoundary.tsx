@@ -1,50 +1,50 @@
-import React, { Suspense } from 'react'
-import { PageError } from 'widget/PageError'
+import React, { Suspense } from 'react';
+import { PageError } from 'widget/PageError';
 
 interface ErrorBoundaryProps {
-  readonly children: React.ReactNode
+  readonly children: React.ReactNode;
 }
 
 interface ErrorBoundaryState {
-  hasError: boolean
+  hasError: boolean;
 }
 
 class ErrorBoundary extends React.Component<
-ErrorBoundaryProps,
-ErrorBoundaryState
+  ErrorBoundaryProps,
+  ErrorBoundaryState
 > {
-  constructor (props: ErrorBoundaryProps) {
-    super(props)
-    this.state = { hasError: false }
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false };
   }
 
-  shouldComponentUpdate (
+  shouldComponentUpdate(
     nextProps: ErrorBoundaryProps,
     nextState: ErrorBoundaryState
   ) {
-    const { hasError } = this.state
-    const { hasError: nextHasError } = nextState
-    return hasError !== nextHasError
+    const { hasError } = this.state;
+    const { hasError: nextHasError } = nextState;
+    return hasError !== nextHasError;
   }
 
-  componentDidCatch (error: Error, errorInfo: React.ErrorInfo) {
-    console.log(error, errorInfo)
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    console.log(error, errorInfo);
   }
 
-  render () {
-    const { hasError } = this.state
-    const { children } = this.props
+  render() {
+    const { hasError } = this.state;
+    const { children } = this.props;
 
     if (hasError) {
       return (
         <Suspense fallback="LOADING...">
           <PageError />
         </Suspense>
-      )
+      );
     }
 
-    return children
+    return children;
   }
 }
 
-export { ErrorBoundary }
+export { ErrorBoundary };

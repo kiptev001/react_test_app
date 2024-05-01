@@ -1,11 +1,11 @@
-import React, { type ButtonHTMLAttributes, type FC } from 'react'
-import cls from './MyButton.module.scss'
-import classNames from 'shared/lib/classNames/classNames'
+import React, { type ButtonHTMLAttributes, type FC } from 'react';
+import cls from './MyButton.module.scss';
+import classNames from 'shared/lib/classNames/classNames';
 
 export interface MyButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  readonly className?: string
-  readonly theme?: ThemeButton
-  readonly size?: SizeButton
+  readonly className?: string;
+  readonly theme?: ThemeButton;
+  readonly size?: SizeButton;
 }
 
 export enum ThemeButton {
@@ -21,17 +21,17 @@ export enum SizeButton {
   LARGE = 'large'
 }
 
-const MyButton: FC<MyButtonProps> = (props) => {
-  const { className, children, theme, size, ...otherProps } = props
+const MyButton: FC<MyButtonProps> = props => {
+  const { className, children, theme, size, ...otherProps } = props;
   return (
     <button
-        className={classNames(cls.btn, {}, [className, cls[theme], cls[size]])}
-        type="button"
-        {...otherProps}
+      className={classNames(cls.btn, {}, [className, cls[theme], cls[size]])}
+      type="button"
+      {...otherProps}
     >
       {children}
     </button>
-  )
-}
+  );
+};
 
-export { MyButton }
+export { MyButton };
