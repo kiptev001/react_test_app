@@ -1,13 +1,13 @@
-import React from 'react'
-import cls from './Loader.module.scss'
-import classNames from 'shared/lib/classNames/classNames'
+import React from 'react';
+import cls from './Loader.module.scss';
+import classNames from 'shared/lib/classNames/classNames';
 
 export interface LoaderProps {
-  readonly className?: string
+  readonly className?: string;
 }
 
-function Loader ({ className }: LoaderProps) {
-  return <div className={classNames(cls.loader, {}, [className])} />
+function Loader({ className }: LoaderProps) {
+  return <div className={classNames(cls.loader, {}, [className])} />;
 }
 
-export { Loader }
+export { Loader };

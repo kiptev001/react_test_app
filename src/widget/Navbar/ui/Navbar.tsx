@@ -1,36 +1,35 @@
-import React from 'react'
-import classNames from 'shared/lib/classNames/classNames'
-import cls from './Navbar.module.scss'
-import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink'
-import { useTranslation } from 'react-i18next'
+import React, { useCallback, useState } from 'react';
+import classNames from 'shared/lib/classNames/classNames';
+import cls from './Navbar.module.scss';
+import { Modal } from 'shared/ui/Modal';
+import { MyButton, ThemeButton } from 'shared/ui/Button';
+import { useTranslation } from 'react-i18next';
 
 export interface NavbarProps {
-  readonly className?: string
+  readonly className?: string;
 }
 
-function Navbar ({ className }: NavbarProps) {
-  const { t } = useTranslation()
+function Navbar({ className }: NavbarProps) {
+  const { t } = useTranslation();
+  const [isModalOpened, setIsModalOpened] = useState(false);
+  const handleModal = useCallback(() => {
+    setIsModalOpened(prev => !prev);
+  }, []);
+
   return (
     <div className={classNames(cls.navbar, {}, [className])}>
-      <div className={cls.links}>
-        <AppLink
-            className={cls.loginLink}
-            theme={AppLinkTheme.PRIMARY}
-            to="/login"
-        >
-          {t('Войти')}
-        </AppLink>
-
-        <AppLink
-            className={cls.mainLink}
-            theme={AppLinkTheme.PRIMARY}
-            to="/"
-        >
-          {t('Главная')}
-        </AppLink>
-      </div>
+      <MyButton
+        className={cls.links}
+        onClick={handleModal}
+        theme={ThemeButton.CLEAR}
+      >
+        {t('Войти')}
+      </MyButton>
+      <Modal isOpen={isModalOpened} onClose={handleModal}>
+        MODAL WINDOW
+      </Modal>
     </div>
-  )
+  );
 }
 
-export { Navbar }
+export { Navbar };

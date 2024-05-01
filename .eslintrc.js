@@ -7,11 +7,12 @@ module.exports = {
   extends: [
     'standard-with-typescript',
     'plugin:react/all',
-    'plugin:@typescript-eslint/recommended'
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended'
   ],
   overrides: [
     {
-      env: {   
+      env: {
         node: true
       },
       files: ['.eslintrc.{js,cjs}'],
@@ -28,7 +29,7 @@ module.exports = {
       jsx: true
     }
   },
-  plugins: ['react'],
+  plugins: ['react', '@typescript-eslint', 'react-hooks', 'prettier'],
   settings: {
     react: {
       version: 'detect'
@@ -57,6 +58,30 @@ module.exports = {
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/naming-convention': 'off',
     'react/jsx-one-expression-per-line': 'off',
-    'react/jsx-no-literals': 'off'
+    'react/jsx-no-literals': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
+    '@typescript-eslint/member-delimiter-style': 'off',
+    '@typescript-eslint/comma-dangle': 'off',
+    'react/jsx-indent-props': 'off',
+    '@typescript-eslint/comma-dangle': 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+        tabWidth: 2,
+        printWidth: 80,
+        useTabs: false,
+        semi: true,
+        singleQuote: true,
+        jsxSingleQuote: false,
+        trailingComma: 'none',
+        bracketSpacing: true,
+        jsxBracketSameLine: false,
+        arrowParens: 'avoid'
+      }
+    ],
+    'react/jsx-indent-props': 'off'
   }
 };

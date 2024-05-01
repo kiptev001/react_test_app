@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
-import '../../src/app/styles/themes/darkTheme.scss'
-import '../../src/app/styles/themes/lightTheme.scss'
+import '../../src/app/styles/themes/darkTheme.scss';
+import '../../src/app/styles/themes/lightTheme.scss';
 
 const preview: Preview = {
   decorators: [],

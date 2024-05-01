@@ -20,5 +20,6 @@
       "module": "CommonJS",
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "webpack.config.ts", "./jest-setup.ts", "jest.config.ts","./config/storybook/preview.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "webpack.config.ts", "./jest-setup.ts", "jest.config.ts","./config/storybook/preview.ts"
+    , "./config/storybook/main.ts", "./config/storybook/webpack.config.ts"],
 }
