@@ -1,6 +1,6 @@
 import { ErrorPage } from 'pages/ErrorPage';
-import { LoginPage } from 'pages/loginPage';
-import { MainPage } from 'pages/mainPage';
+import { LoginPage } from 'pages/LoginPage/index';
+import { MainPage } from 'pages/MainPage/index';
 import React from 'react';
 import { type RouteProps } from 'react-router-dom';
 
