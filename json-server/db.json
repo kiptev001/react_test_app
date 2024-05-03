@@ -1,0 +1,52 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title 2",
+      "views": 200
+    },
+    {
+      "id": "3",
+      "title": "another title 3",
+      "views": 300
+    },
+    {
+      "id": "4",
+      "title": "another title 4",
+      "views": 400
+    },
+    {
+      "id": "dffc"
+    },
+    {
+      "id": "62de",
+      "title": "POST request created"
+    },
+    {
+      "id": "72a7",
+      "title": "POST request created 2",
+      "text": "TEXT"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [{ "id": "1", "username": "kabachok", "password": "123" }]
+}
