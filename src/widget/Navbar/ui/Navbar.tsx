@@ -1,9 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import classNames from 'shared/lib/classNames/classNames';
 import cls from './Navbar.module.scss';
-import { Modal } from 'shared/ui/Modal';
 import { MyButton, ThemeButton } from 'shared/ui/Button';
 import { useTranslation } from 'react-i18next';
+import { LoginModal } from 'features/AuthByUsername';
 
 export interface NavbarProps {
   readonly className?: string;
@@ -25,9 +25,7 @@ function Navbar({ className }: NavbarProps) {
       >
         {t('Войти')}
       </MyButton>
-      <Modal isOpen={isModalOpened} onClose={handleModal}>
-        MODAL WINDOW
-      </Modal>
+      <LoginModal isOpen={isModalOpened} onClose={handleModal} />
     </div>
   );
 }

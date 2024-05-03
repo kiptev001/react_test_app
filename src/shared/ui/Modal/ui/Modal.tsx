@@ -15,13 +15,21 @@ export interface ModalProps {
   readonly className?: string;
   readonly children?: ReactNode;
   readonly onClose?: () => void;
+  readonly lazy?: boolean;
 }
 
 const Modal = (props: ModalProps) => {
-  const { children, className, isOpen, onClose } = props;
+  const { children, className, isOpen, onClose, lazy } = props;
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const timeRef = useRef<ReturnType<typeof setTimeout>>(null);
   const { theme } = useTheme();
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
 
   const closeHandler = useCallback(
     (e: React.MouseEvent) => {
@@ -71,6 +79,8 @@ const Modal = (props: ModalProps) => {
     [cls.opened]: isOpen,
     [cls.closing]: isClosing
   };
+
+  if (lazy && !isMounted) return null;
 
   return (
     <Portal>
