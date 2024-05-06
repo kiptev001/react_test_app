@@ -16,7 +16,7 @@
   }
 }
 
-.outline{
+.outline {
   padding: 12px;
   margin: 0;
   border: solid 2px var(--inverted-primary-color);
@@ -54,4 +54,8 @@
   width: var(--font-line-l);
   height: var(--font-line-l);
   font-size: var(--font-size-l);
+}
+
+.disabled {
+  visibility: hidden;
 }

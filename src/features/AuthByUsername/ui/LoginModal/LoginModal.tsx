@@ -15,7 +15,7 @@ export default function LoginModal({
 }: ILoginModalProps) {
   return (
     <Modal isOpen={isOpen} lazy onClose={onClose}>
-      <LoginForm />
+      <LoginForm onClose={onClose} />
     </Modal>
   );
 }

@@ -6,6 +6,7 @@ export interface MyButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   readonly className?: string;
   readonly theme?: ThemeButton;
   readonly size?: SizeButton;
+  readonly disabled?: boolean;
 }
 
 export enum ThemeButton {
@@ -22,10 +23,17 @@ export enum SizeButton {
 }
 
 const MyButton: FC<MyButtonProps> = props => {
-  const { className, children, theme, size, ...otherProps } = props;
+  const { className, children, theme, size, disabled, ...otherProps } = props;
+  const mods = {
+    [cls[theme]]: true,
+    [cls[size]]: true,
+    [cls.disabled]: disabled
+  };
+
   return (
     <button
-      className={classNames(cls.btn, {}, [className, cls[theme], cls[size]])}
+      className={classNames(cls.btn, mods, [className])}
+      disabled={disabled}
       type="button"
       {...otherProps}
     >
