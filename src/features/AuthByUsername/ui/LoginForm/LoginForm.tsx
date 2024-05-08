@@ -4,12 +4,16 @@ import { MyButton, ThemeButton } from 'shared/ui/Button';
 import styles from './LoginForm.module.scss';
 import { Input } from 'shared/ui/Input';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginActions } from 'features/AuthByUsername/model/slice/LoginSlice';
+import {
+  loginActions,
+  loginReducer
+} from 'features/AuthByUsername/model/slice/LoginSlice';
 import { getLoginState } from 'features/AuthByUsername/model/selectors/getLoginState';
 import { authByUsername } from 'features/AuthByUsername/model/services/authByUsername';
 import Text, { ThemeText } from 'shared/ui/Text/Text';
+import DynamicReducerLoader from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 
-interface ILoginFormProps {
+export interface ILoginFormProps {
   readonly onClose?: () => void;
 }
 
@@ -32,42 +36,43 @@ const LoginForm = ({ onClose }: ILoginFormProps) => {
     [dispatch]
   );
 
-  const onLoginClick = useCallback(
-    (event: React.MouseEvent) => {
-      dispatch(authByUsername({ username, password }));
-      dispatch(loginActions.clearData());
+  const onLoginClick = (event: React.MouseEvent) => {
+    dispatch(authByUsername({ username, password }));
+    if (error === '') {
       onClose();
-    },
-    [dispatch, username, password, onClose]
-  );
+      dispatch(loginActions.clearData());
+    }
+  };
 
   return (
-    <form className={styles.loginForm}>
-      {error ? (
-        <Text text={error} theme={ThemeText.ERROR} title="Error" />
-      ) : null}
-      <Input
-        autoFocus
-        className={styles.usernameInput}
-        onChange={onChangeUsername}
-        placeholder={t('Имя пользователя')}
-        value={username}
-      />
-      <Input
-        className={styles.passwordInput}
-        onChange={onChangePassword}
-        placeholder={t('Пароль')}
-        value={password}
-      />
-      <MyButton
-        className={styles.submitBtn}
-        disabled={isLoading}
-        onClick={onLoginClick}
-        theme={ThemeButton.OUTLINE}
-      >
-        {t('Войти')}
-      </MyButton>
-    </form>
+    <DynamicReducerLoader reducers={{ login: loginReducer }} removeAfterUnmount>
+      <form className={styles.loginForm}>
+        {error ? (
+          <Text text={error} theme={ThemeText.ERROR} title="Error" />
+        ) : null}
+        <Input
+          autoFocus
+          className={styles.usernameInput}
+          onChange={onChangeUsername}
+          placeholder={t('Имя пользователя')}
+          value={username}
+        />
+        <Input
+          className={styles.passwordInput}
+          onChange={onChangePassword}
+          placeholder={t('Пароль')}
+          value={password}
+        />
+        <MyButton
+          className={styles.submitBtn}
+          disabled={isLoading}
+          onClick={onLoginClick}
+          theme={ThemeButton.OUTLINE}
+        >
+          {t('Войти')}
+        </MyButton>
+      </form>
+    </DynamicReducerLoader>
   );
 };
 

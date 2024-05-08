@@ -10,7 +10,7 @@
     {
       "files": ["src/**/*.scss"],
       "rules": {
-        "alpha-value-notation": "percentage",
+        "alpha-value-notation": "number",
         "selector-class-pattern": null,
         "import-notation": null
       }
