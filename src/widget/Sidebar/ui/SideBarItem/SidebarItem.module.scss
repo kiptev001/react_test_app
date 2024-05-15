@@ -1,0 +1,22 @@
+.icon {
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke: var(--inverted-primary-color);
+}
+
+.link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: start;
+  padding: 5px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--inverted-secondary-color);
+    color: var(--secondary-color);
+    text-decoration: none;
+    border-radius: 10px;
+  }
+}

@@ -3,7 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { MyButton, ThemeButton } from 'shared/ui/Button';
 import styles from './LoginForm.module.scss';
 import { Input } from 'shared/ui/Input';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   loginActions,
   loginReducer
@@ -19,7 +20,7 @@ export interface ILoginFormProps {
 
 const LoginForm = ({ onClose }: ILoginFormProps) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { username, password, isLoading, error } = useSelector(getLoginState);
 
   const onChangeUsername = useCallback(
@@ -36,9 +37,9 @@ const LoginForm = ({ onClose }: ILoginFormProps) => {
     [dispatch]
   );
 
-  const onLoginClick = (event: React.MouseEvent) => {
-    dispatch(authByUsername({ username, password }));
-    if (error === '') {
+  const onLoginClick = async (event: React.MouseEvent) => {
+    const result = await dispatch(authByUsername({ username, password }));
+    if (result.meta.requestStatus === 'fulfilled') {
       onClose();
       dispatch(loginActions.clearData());
     }

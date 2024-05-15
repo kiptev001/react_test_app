@@ -45,8 +45,17 @@
       "postId": "1"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  },
-  "users": [{ "id": "1", "username": "kabachok", "password": "123" }]
+  "users": [{ "id": "1", "username": "kabachok", "password": "123" }],
+  "profile": [
+    {
+      "firstName": "Sobaka",
+      "lastName": "Kabachok",
+      "age": "6",
+      "currency": "THB",
+      "country": "Thailand",
+      "city": "Karon",
+      "username": "kabachok",
+      "avatar": "https://www.shutterstock.com/image-photo/zucchini-marrow-isolated-on-white-600w-1933384520.jpg"
+    }
+  ]
 }

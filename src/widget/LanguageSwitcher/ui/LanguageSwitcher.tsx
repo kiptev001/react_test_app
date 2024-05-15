@@ -26,5 +26,6 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
     </MyButton>
   );
 };
+const memoLangSwitcher = React.memo(LanguageSwitcher);
 
-export { LanguageSwitcher };
+export { memoLangSwitcher as LanguageSwitcher };

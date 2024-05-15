@@ -1,0 +1,13 @@
+export enum Currency {
+  RUB = 'RUB',
+  USD = 'USD',
+  EUR = 'EUR',
+  THB = 'THB'
+}
+
+export enum Country {
+  Russia = 'Russia',
+  USA = 'USA',
+  Georgia = 'Georgia',
+  Thailand = 'Thailand'
+}

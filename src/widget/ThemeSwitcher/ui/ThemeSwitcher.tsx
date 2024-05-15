@@ -27,4 +27,6 @@ function ThemeSwitcher({ className }: ThemeSwitcherProps) {
   );
 }
 
-export { ThemeSwitcher };
+const memoizedThemeSwitcher = React.memo(ThemeSwitcher);
+
+export { memoizedThemeSwitcher as ThemeSwitcher };
