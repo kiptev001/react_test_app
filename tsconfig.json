@@ -6,6 +6,7 @@
     "target": "es5",
     "jsx": "react-jsx",
     "allowJs": true,
+    "strict": true,
     "moduleResolution": "node",
 
     "baseUrl": ".",
@@ -17,9 +18,17 @@
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS",
+      "module": "CommonJS"
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "webpack.config.ts", "./jest-setup.ts", "jest.config.ts","./config/storybook/preview.ts"
-    , "./config/storybook/main.ts", "./config/storybook/webpack.config.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "webpack.config.ts",
+    "./jest-setup.ts",
+    "jest.config.ts",
+    "./config/storybook/preview.ts",
+    "./config/storybook/main.ts",
+    "./config/storybook/webpack.config.ts"
+  ]
 }

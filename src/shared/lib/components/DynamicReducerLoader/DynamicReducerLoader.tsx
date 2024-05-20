@@ -13,27 +13,23 @@ export type ReducersList = {
   [name in stateSchemaKey]?: Reducer;
 };
 
-type ReducersListEntry = [stateSchemaKey, Reducer];
-
 const DynamicReducerLoader: FC<IDynamicReducerLoaderProps> = props => {
   const { reducers, children, removeAfterUnmount = false } = props;
   const dispatch = useDispatch();
   const store = useStore() as storeWithManager;
 
   useEffect(() => {
-    Object.entries(reducers).forEach(([name, reducer]: ReducersListEntry) => {
-      store.reducerManager.add(name, reducer);
+    Object.entries(reducers).forEach(([name, reducer]) => {
+      store.reducerManager?.add(name as stateSchemaKey, reducer);
       dispatch({ type: `@INIT ${name} reducer` });
     });
 
     return () => {
       if (removeAfterUnmount) {
-        Object.entries(reducers).forEach(
-          ([name, reducer]: ReducersListEntry) => {
-            store.reducerManager.remove(name);
-            dispatch({ type: `@DESTROY ${name} reducer` });
-          }
-        );
+        Object.entries(reducers).forEach(([name, reducer]) => {
+          store.reducerManager?.remove(name as stateSchemaKey);
+          dispatch({ type: `@DESTROY ${name} reducer` });
+        });
       }
     };
     // eslint-disable-next-line

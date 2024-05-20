@@ -1,6 +1,10 @@
 import path from 'path';
 
 const config = {
+  globals: {
+    __IS_DEV__: true,
+    __API__: ''
+  },
   testEnvironment: 'jsdom',
   clearMocks: true,
   coveragePathIgnorePatterns: ['/node_modules/'],

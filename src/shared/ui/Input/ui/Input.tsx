@@ -3,7 +3,8 @@ import React, {
   type InputHTMLAttributes,
   useState,
   useEffect,
-  useRef
+  useRef,
+  type MutableRefObject
 } from 'react';
 import styles from './Input.module.scss';
 import classNames from 'shared/lib/classNames/classNames';
@@ -31,7 +32,7 @@ const Input = (props: IInputProps) => {
 
   const [isFocus, setIsFocus] = useState(false);
   const [caretPosition, setCaretPosition] = useState(0);
-  const inputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef() as MutableRefObject<HTMLInputElement>;
 
   useEffect(() => {
     if (autoFocus) {
@@ -56,7 +57,7 @@ const Input = (props: IInputProps) => {
       ) : null}
       <div className={styles.caretWrapper}>
         <input
-          className={classNames(className, {}, [styles.input])}
+          className={classNames(styles.input, {}, [className])}
           onBlur={() => {
             setIsFocus(false);
           }}

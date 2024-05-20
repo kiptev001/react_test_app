@@ -15,7 +15,7 @@ import Text, { ThemeText } from 'shared/ui/Text/Text';
 import DynamicReducerLoader from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 
 export interface ILoginFormProps {
-  readonly onClose?: () => void;
+  readonly onClose: () => void;
 }
 
 const LoginForm = ({ onClose }: ILoginFormProps) => {

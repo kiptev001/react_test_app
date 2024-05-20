@@ -12,9 +12,11 @@ export interface IBuildOptions {
   path: IPath;
   PORT: number;
   isDev: boolean;
+  apiUrl: string;
 }
 
 export interface EnvBuild {
   port: number;
   mode: BuildMode;
+  apiUrl?: string;
 }

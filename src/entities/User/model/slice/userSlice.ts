@@ -14,7 +14,8 @@ export const userSlice = createSlice({
       state.authData = action.payload;
     },
     initAuthData: state => {
-      const user = JSON.parse(localStorage.getItem(AUTH_TOKEN_KEY));
+      const userToken = localStorage.getItem(AUTH_TOKEN_KEY);
+      const user = userToken ? JSON.parse(userToken) : null;
       if (user) {
         state.authData = user;
       }
